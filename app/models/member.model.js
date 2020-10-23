@@ -48,7 +48,7 @@ Member.findById = (MemberId, result) => {
 };
 
 Member.getAll = (result) => {
-    sql.query('SELECT firstname,lastname FROM member', (err, res) => {
+    sql.query('SELECT id,firstname,lastname FROM member', (err, res) => {
         if (err) {
             console.log('error: ', err);
             result(null, err);
@@ -62,16 +62,14 @@ Member.getAll = (result) => {
 
 Member.updateById = (id, member, result) => {
     sql.query(
-        'UPDATE member SET username = ?,firstname = ?,lastname = ?,sex = ?,age = ?,email = ?,phone = ?,level_ID = ?,national_ID = ?,bank_account_num = ? WHERE id = ?',
+        'UPDATE member SET firstname = ?,lastname = ?,sex = ?,age = ?,email = ?,phone = ?,national_ID = ?,bank_account_num = ? WHERE id = ?',
         [
-            member.username,
             member.firstname,
             member.lastname,
             member.sex,
             member.age,
             member.email,
             member.phone,
-            member.level_ID,
             member.national_ID,
             member.bank_account_num,
             id,

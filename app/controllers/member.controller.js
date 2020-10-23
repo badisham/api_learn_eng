@@ -115,3 +115,4 @@ exports.deleteAll = (req, res) => {
         else res.send({ message: `All Members were deleted successfully!` });
     });
 };
+
